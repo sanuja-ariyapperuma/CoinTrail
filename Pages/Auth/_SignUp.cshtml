@@ -1,0 +1,33 @@
+﻿@page
+@model MyApp.Namespace.SignUpModel
+@section Styles
+{
+    <link href="~/css/login.css" rel="stylesheet" />
+}
+
+<div class="login-card" id="login-card" >
+<div class="card" style="width: 21rem;">
+  <div class="card-body">
+    <h5 class="card-title">Create New Account</h5>
+    <form method="post">
+    <div class="mb-3">
+        <input type="email" class="form-control" id="username" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" id="login">Sign Up</button>
+        <button 
+            class="btn btn-link" 
+            hx-get="/auth/login?handler=loginpartial" 
+            hx-target="#login-card" 
+            hx-swap="outerHTML"
+            >
+        Already have an account ?
+        </button>
+    </div>
+</form>
+  </div>
+</div>
+</div>

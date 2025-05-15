@@ -1,0 +1,12 @@
+﻿body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fluent-card {
+  width: 300px; /* Optional: Set a width for the card */
+  padding: 16px;
+}

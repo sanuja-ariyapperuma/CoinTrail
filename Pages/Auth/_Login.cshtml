@@ -1,0 +1,38 @@
+﻿@page
+@model MyApp.Namespace.LoginModel
+
+
+<div class="login-card" id="login-card" >
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
+    <form method="post" hx-post="/auth/login">
+    <div class="mb-3">
+        <input type="email" class="form-control" id="username" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    <div class="mb-3" hx-ext="preload">
+        <button 
+           type="submit" 
+           class="btn btn-primary" 
+           id="login"
+           hx-on:click="validateForm(event)"
+           >Login</button>
+        <a 
+            class="btn btn-link" 
+            hx-get="/auth/login?handler=signuppartial" @*get is mandatory*@
+            hx-target="#login-card" 
+            hx-swap="outerHTML"
+            hx-trigger="click"
+            onclick="event.stopPropagation();"
+            >
+            Create a new account
+        </a>
+    </div>
+</form>
+  </div>
+</div>
+</div>
+

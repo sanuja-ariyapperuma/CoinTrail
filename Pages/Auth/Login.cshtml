@@ -1,0 +1,27 @@
+﻿@page
+@model MyApp.Namespace.LoginModel
+@{
+}
+
+@section PageStyles {
+    <link href="~/css/login.css" rel="stylesheet" />
+}
+
+@await Html.PartialAsync("_Login")
+
+@section PageScripts {
+    <script>
+        function validateForm(event){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if (!username || !password) {
+                event.preventDefault();
+                ErrorAlert("Please fill in all fields.");
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+}

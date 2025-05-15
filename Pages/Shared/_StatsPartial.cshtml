@@ -1,0 +1,6 @@
+@model int
+<div>
+    <h3>User Statistics</h3>
+    <p>Total Users: @Model</p>
+    <button hx-get="/Index?handler=Stats" hx-target="#stats-partial">Refresh Stats</button>
+</div>
