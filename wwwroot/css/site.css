@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+.input-field{
+  width: 100%;
+}
+.toast {
+    position: fixed; /* Ensures the toast is positioned relative to the viewport */
+    top: 1rem; /* Adjust the position as needed */
+    right: 1rem; /* Adjust the position as needed */
+    z-index: 1050; /* Ensure it appears above other elements */
+}

@@ -56,6 +56,3 @@ htmx-cache/
 # ASP.NET Core specific
 appsettings.json
 appsettings.*.json
-
-# Publish output
-wwwroot/
