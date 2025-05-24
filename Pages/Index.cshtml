@@ -1,4 +1,9 @@
 ﻿@page
 @model IndexModel
 
+@{
+    Layout = "_Layout";
+}
 
+<div class="container-fluid" id="root-node" hx-get="/Auth/Login" hx-trigger="load"></div>
+@* <h2>Welcome, @HttpContext.Session.GetString("User")!</h2> *@

@@ -1,38 +1,75 @@
-﻿@page
-@model MyApp.Namespace.LoginModel
+﻿
+@model htmxDemo.Models.ViewModels.LoginViewModel
 
-
+<style>
+    .login-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
 <div class="login-card" id="login-card" >
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+<div class="card" style="width: 500px;">
+  <div class="card-body" style="padding: 50px">
     <h5 class="card-title">Login</h5>
-    <form method="post" hx-post="/auth/login">
+            <form 
+                method="post" 
+                hx-post="/auth/login?handler=login" 
+                data-validate="validateLoginForm"
+                hx-target="#root-node"
+                hx-swap="innerHTML">
+
     <div class="mb-3">
-        <input type="email" class="form-control" id="username" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com" value="@Model.Username">
     </div>
     <div class="mb-3">
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
     </div>
+                @if (Model.ErrorMessage != null && !string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger">@Model.ErrorMessage</div>
+                }
     <div class="mb-3" hx-ext="preload">
         <button 
            type="submit" 
            class="btn btn-primary" 
            id="login"
-           hx-on:click="validateForm(event)"
-           >Login</button>
+           hx-swap="innerHTML"
+           hx-target="#main-body"
+           >Login
+       </button>
         <a 
             class="btn btn-link" 
-            hx-get="/auth/login?handler=signuppartial" @*get is mandatory*@
-            hx-target="#login-card" 
-            hx-swap="outerHTML"
+            hx-get="/auth/SignUp"
+            hx-target="#login-card"
+            hx-swap="innerHTML"
             hx-trigger="click"
             onclick="event.stopPropagation();"
             >
             Create a new account
         </a>
-    </div>
+        </div>
 </form>
   </div>
 </div>
 </div>
 
+<script>
+    function validateLoginForm(form) {
+        const username = form.querySelector("#username").value.trim();
+        const password = form.querySelector("#password").value.trim();
+
+        if (!username) {
+            ErrorAlert("Please enter a username.");
+            return false;
+        }
+
+        if (!password) {
+            ErrorAlert("Please enter a password.");
+            return false;
+        }
+
+        return true;
+    }
+    
+</script>

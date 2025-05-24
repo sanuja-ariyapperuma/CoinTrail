@@ -5,15 +5,9 @@ namespace htmxDemo.Pages;
 
 public class IndexModel : PageModel
 {
-    private static readonly Random Random = new();
-    public int TotalUsers { get; private set; }
     public void OnGet()
     {
-        TotalUsers = Random.Next(1000, 5000);
+        //Empty
     }
-    public IActionResult OnGetStats()
-    {
-        var updatedCount = Random.Next(1000, 5000);
-        return Partial("_StatsPartial", updatedCount);
-    }
+    
 }

@@ -30,6 +30,12 @@ obj/
 *.njsproj
 *.sln
 *.sw?
+.vs/
+CopilotIndices/
+DesignTimeBuild/
+FileContentIndex/
+.v17/
+ProjectEvaluation/
 
 # OS-specific files
 .DS_Store

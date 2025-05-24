@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyApp.Namespace
+namespace htmxDemo.Pages
 {
-    public class LoginModel : PageModel
+    public class _DashboardModel : PageModel
     {
         public void OnGet()
         {

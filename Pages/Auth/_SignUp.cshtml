@@ -1,15 +1,21 @@
-﻿@page
+﻿
 @model MyApp.Namespace.SignUpModel
-@section Styles
-{
-    <link href="~/css/login.css" rel="stylesheet" />
-}
 
+<style>
+    .login-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
 <div class="login-card" id="login-card" >
-<div class="card" style="width: 21rem;">
-  <div class="card-body">
+ <div class="card" style="width: 500px;">
+  <div class="card-body" style="padding: 50px">
     <h5 class="card-title">Create New Account</h5>
     <form method="post">
+    <div class="mb-3">
+        <input type="text" class="form-control" id="name" placeholder="Name">
+    </div>
     <div class="mb-3">
         <input type="email" class="form-control" id="username" placeholder="name@example.com">
     </div>
@@ -18,14 +24,14 @@
     </div>
     <div class="mb-3">
         <button type="button" class="btn btn-primary" id="login">Sign Up</button>
-        <button 
-            class="btn btn-link" 
-            hx-get="/auth/login?handler=loginpartial" 
-            hx-target="#login-card" 
-            hx-swap="outerHTML"
-            >
-        Already have an account ?
-        </button>
+                    <a class="btn btn-link"
+                       hx-get="/auth/Login"
+                       hx-target="#login-card"
+                       hx-swap="innerHTML"
+                       hx-trigger="click"
+                       onclick="event.stopPropagation();">
+                        Already have an account ?
+                    </a>
     </div>
 </form>
   </div>
